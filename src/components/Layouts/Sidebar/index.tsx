@@ -55,7 +55,7 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 w-full md:w-64 h-full bg-white border-r border-gray-200 md:relative md:flex md:flex-col md:justify-between md:max-w-xs z-50 ${
+        className={`fixed top-0 left-0 w-full md:w-80 h-full bg-white border-r border-gray-200 md:relative md:flex md:flex-col md:justify-between md:max-w-xs z-50 ${
           isSidebarOpen ? "block" : "hidden md:block"
         }`}
       >
