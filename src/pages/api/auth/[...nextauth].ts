@@ -1,4 +1,3 @@
-import { id } from "./../../../../node_modules/next-auth/client/__tests__/helpers/mocks.d";
 import { signIn } from "@/lib/db/services/service";
 import { compare } from "bcrypt";
 import { NextAuthOptions } from "next-auth";
@@ -49,7 +48,7 @@ const authOptions: NextAuthOptions = {
       }
       return token;
     },
-    async session({ session, token }) {
+    async session({ session, token }: any) {
       if ("email" in token) {
         session.user!.email = token.email;
       }
