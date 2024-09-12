@@ -14,4 +14,5 @@ export default withAuth(mainMiddleware, [
   "/my-blogs",
   "/favorite",
   "/add-new-blog",
+  "/",
 ]);
