@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { retrieveUserFullname } from "@/lib/db/services/service";
+import { retrieveUserFullname } from "@/lib/db/services/user";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
@@ -10,7 +10,7 @@ type Data = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>,
+  res: NextApiResponse<Data>
 ) {
   const data = await retrieveUserFullname(req.query.id! as string);
   if (data) {
