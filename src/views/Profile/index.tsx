@@ -69,7 +69,7 @@ const ProfileView = () => {
             />
           </div>
         ) : (
-          <div className="w-32 h-32 object-cover border border-neutral-300 rounded-full"></div>
+          <div className="w-32 h-32 object-cover border border-neutral-300 rounded-full bg-black"></div>
         )}
 
         <div className="w-32 select-none border border-neutral-800 text-center mt-5">

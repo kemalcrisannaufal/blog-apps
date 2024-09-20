@@ -9,11 +9,6 @@ type SidebarItem = {
 
 export const sidebarData: SidebarItem[] = [
   {
-    name: "Profile",
-    icon: FaUser,
-    destination: "/profile",
-  },
-  {
     name: "Dashboard",
     icon: FaHome,
     destination: "/dashboard",
@@ -28,5 +23,10 @@ export const sidebarData: SidebarItem[] = [
     name: "Favorite",
     icon: FaHeart,
     destination: "/favorite",
+  },
+  {
+    name: "Profile",
+    icon: FaUser,
+    destination: "/profile",
   },
 ];

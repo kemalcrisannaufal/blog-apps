@@ -19,7 +19,7 @@ const Sidebar = () => {
     if (data && data.user.id) {
       const profileImageRef = ref(
         storage,
-        `profiles/${data.user.id}/profile.jpg`,
+        `profiles/${data.user.id}/profile.jpg`
       );
       getDownloadURL(profileImageRef)
         .then((url) => {
@@ -70,13 +70,7 @@ const Sidebar = () => {
                 />
               </div>
             ) : (
-              <div className="w-full h-32 flex justify-center items-center">
-                <img
-                  src="https://via.placeholder.com/150"
-                  alt="Profile"
-                  className="w-24 h-24 rounded-full object-cover"
-                />
-              </div>
+              <div className="w-32 h-32 rounded-full bg-black"></div>
             )}
 
             <div className="p-5 flex flex-col items-center">

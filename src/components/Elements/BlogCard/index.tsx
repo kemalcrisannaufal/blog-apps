@@ -14,7 +14,7 @@ const BlogCard = ({
 }) => {
   return (
     <Link href={destination}>
-      <div className="w-[180px] sm:w-[260px] border rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl hover:scale-110 transition">
+      <div className="max-w-[180px] sm:max-w-[270px] border rounded-lg shadow-lg overflow-hidden group hover:shadow-2xl hover:scale-110 transition">
         <div className="h-32 sm:h-40 relative">
           <img
             src={image}

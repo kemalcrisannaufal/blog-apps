@@ -42,7 +42,7 @@ const AddNewBlogView = () => {
               console.error(error);
               reject(error);
             }
-          },
+          }
         );
       });
     }
@@ -85,9 +85,9 @@ const AddNewBlogView = () => {
   return (
     <div className="w-full">
       <HeaderPage title="Add New Blog" />
-      <div className="w-full h-full p-10 pt-5 flex flex-col">
+      <div className="w-full h-full" style={{ padding: 30 }}>
         <form onSubmit={handleSubmit}>
-          <div className="my-3 w-full">
+          <div className="mb-3 w-full">
             <label
               htmlFor="title"
               className="block text-sm sm:text-md md:text-lg font-bold tracking-wide"
@@ -157,7 +157,7 @@ const AddNewBlogView = () => {
               name="content"
               id="content"
               rows={20}
-              className="w-full border p-2 rounded-lg mt-2"
+              className="w-full border p-5 rounded-lg mt-2"
             />
           </div>
 
