@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { fetcher } from "@/lib/swr/fetcher";
@@ -5,9 +6,12 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import HeaderPage from "@/components/Elements/HeaderPage";
 import styles from "./DetailBlog.module.scss";
+import { FaHeart } from "react-icons/fa";
+import { useSession } from "next-auth/react";
 
 const DetailBlogView = () => {
   const { query } = useRouter();
+  const { data }: { data: any } = useSession();
   const { data: blog, isLoading: blogIsLoading } = useSWR(
     `/api/blogs/${query.id!}`,
     fetcher
@@ -17,16 +21,44 @@ const DetailBlogView = () => {
     fetcher
   );
 
+  const handleLike = async (event: any) => {
+    event.preventDefault();
+
+    try {
+      const payloadData: { idUser: any; idBlog: any } = {
+        idUser: data.user.id,
+        idBlog: query.id,
+      };
+
+      const result = await fetch("/api/favorite/post", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payloadData),
+      });
+      if (result.status === 200) {
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <HeaderPage title={"Read Blog"} />
       <div>
         {blogIsLoading || userIsLoading ? (
           <div className={styles.detaiBlog__skeleton}>
-            <div className={styles.detaiBlog__skeleton__title}></div>
-            <div className={styles.detaiBlog__skeleton__info}></div>
-            <div className={styles.detaiBlog__skeleton__image}></div>
-            <div className={styles.detaiBlog__skeleton__content}></div>
+            <div className={styles.detaiBlog__skeleton__title} />
+            <div className={styles.detaiBlog__skeleton__info} />
+            <div className={styles.detaiBlog__skeleton__image} />
+            {Array.from({ length: 9 }).map((_, index) => (
+              <div
+                className={styles.detaiBlog__skeleton__content}
+                key={index}
+              />
+            ))}
           </div>
         ) : (
           <div className={styles.detaiBlog}>
@@ -52,6 +84,19 @@ const DetailBlogView = () => {
               <p className={styles.detaiBlog__content__text}>
                 {blog && blog.data.content}
               </p>
+            </div>
+
+            <div className={styles.detaiBlog__likeSection}>
+              <form onSubmit={handleLike}>
+                <button
+                  className={styles.detaiBlog__likeSection__button}
+                  type="submit"
+                >
+                  <FaHeart
+                    className={styles.detaiBlog__likeSection__button__icon}
+                  />
+                </button>
+              </form>
             </div>
           </div>
         )}

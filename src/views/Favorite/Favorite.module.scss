@@ -1,0 +1,22 @@
+.favorite {
+  padding: 3%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .favorite {
+    &__content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

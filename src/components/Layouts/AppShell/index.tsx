@@ -6,13 +6,9 @@ const disabledNavbar = ["/auth/login", "/auth/register", "/404"];
 const AppShell = ({ children }: { children: React.ReactNode }) => {
   const { pathname } = useRouter();
   return (
-    <div className="w-full min-h-screen flex">
+    <div className="flex">
       {!disabledNavbar.includes(pathname) && <Sidebar />}
-      {!disabledNavbar.includes(pathname) ? (
-        <div className={`w-full`}>{children}</div>
-      ) : (
-        children
-      )}
+      <div className={`flex-grow overflow-auto h-screen`}>{children}</div>
     </div>
   );
 };

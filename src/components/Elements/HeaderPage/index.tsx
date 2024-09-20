@@ -4,7 +4,7 @@ import Button from "../Button";
 const HeaderPage = ({ title }: { title: string }) => {
   const { push } = useRouter();
   return (
-    <div className="mt-14 md:mt-0 w-full h-16 p-5 md:p-10 flex justify-between items-center border">
+    <div className="mt-14 md:mt-0 w-full h-16 p-5 md:p-10 flex justify-between items-center border sticky top-0 bg-white z-50">
       <div>
         <h1 className="text-lg md:text-2xl font-bold text-neutral-700">
           {title}
